@@ -6,6 +6,7 @@
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
+  <allow-navigation href="http://192.168.188.25:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
@@ -36,4 +37,8 @@
   <plugin name="cordova-plugin-statusbar" spec="2.2.1"/>
   <plugin name="cordova-plugin-device" spec="1.1.4"/>
   <plugin name="cordova-plugin-splashscreen" spec="~4.0.1"/>
+  <plugin name="phonegap-plugin-barcodescanner" spec="~6.0.6">
+    <variable name="CAMERA_USAGE_DESCRIPTION" value="Scan QR-Codes"/>
+  </plugin>
+  <plugin name="cordova-plugin-x-socialsharing" spec="~5.1.7"/>
 </widget>

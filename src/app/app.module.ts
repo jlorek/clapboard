@@ -13,9 +13,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // 3rd party
- import { QRCodeModule } from 'angular2-qrcode';
+import { QRCodeModule } from 'angular2-qrcode';
 
-//custom
+// native
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
+// custom
 import { Clipboard } from '../providers/clipboard'
 
 @NgModule({
@@ -40,6 +44,8 @@ import { Clipboard } from '../providers/clipboard'
     TabsPage
   ],
   providers: [
+    BarcodeScanner,
+    SocialSharing,
     Clipboard,
     StatusBar,
     SplashScreen,
