@@ -13,7 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 // 3rd party
- 
+ import { QRCodeModule } from 'angular2-qrcode';
+
 //custom
 import { Clipboard } from '../providers/clipboard'
 
@@ -27,7 +28,8 @@ import { Clipboard } from '../providers/clipboard'
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    QRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
