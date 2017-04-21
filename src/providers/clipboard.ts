@@ -20,6 +20,12 @@ export class Clipboard {
   constructor(/*public http: Http*/) {
     console.log('Hello Clipboard Provider');
     this.socket = io.connect(this.socketUrl);
+    //?
+    //var socket = io('http://localhost');
+
+    this.socket.on("connect", function() {
+      console.log("Connected to server with socket ID " + this.socket.id)
+    });
   }
 
   sendText(text) {
@@ -27,6 +33,7 @@ export class Clipboard {
     this.socket.emit('add-data', { text: text })
   }
 
+  // rename getMessageStream()?
   getMessages() : Observable<any>{
     let observable = new Observable(observer => {
       this.socket.on('data', (message) => {
@@ -38,4 +45,18 @@ export class Clipboard {
     })
     return observable;
   }
+
+  create() {
+    this.socket.emit("create", {}, function(result) {
+      console.log("create-callback: " + JSON.stringify(result));
+    });
+  }
+
+  join(board: string) {
+    // does emit only send to server?
+    this.socket.emit("join", {id: board}, function(result) {
+      console.log("join-callback: " + JSON.stringify(result));
+    });
+  }
+
 }
